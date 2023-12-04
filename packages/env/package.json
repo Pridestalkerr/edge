@@ -7,11 +7,10 @@
     "src"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
     "lint": "eslint \"src/**/*.ts*\"",
     "format": "prettier \"**/*.{mjs,ts,md,json}\"",
-    "typecheck": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.6.1",
