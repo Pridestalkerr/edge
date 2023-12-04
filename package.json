@@ -8,8 +8,9 @@
   },
   "packageManager": "pnpm@8.10.5",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pg_clear": "sudo rm -rf pgdata && mkdir pgdata && sudo chown 1001:1001 pgdata"
+    "pg_clear": "sudo rm -rf pgdata && mkdir pgdata && sudo chown 1001:1001 pgdata",
+    "dev": "turbo run dev",
+    "clean": "turbo run clean && rm -rf node_modules"
   },
   "keywords": [],
   "author": "",
