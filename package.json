@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@manypkg/cli": "^0.21.1",
     "@types/node": "^20.10.3",

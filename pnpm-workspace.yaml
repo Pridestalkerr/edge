@@ -1,2 +1,6 @@
 packages:
   - apps/*
+  - packages/config/eslint
+  - packages/config/tsconfig
+  - packages/config/prettier
+  - packages/env

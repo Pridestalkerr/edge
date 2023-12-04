@@ -1,0 +1,34 @@
+{
+  "name": "@edge/env",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "format": "prettier \"**/*.{mjs,ts,md,json}\"",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.6.1",
+    "dotenv": "^16.3.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@edge/eslint-config": "^0.0.0",
+    "@edge/prettier-config": "^0.0.0",
+    "@edge/tsconfig": "^0.0.0",
+    "typescript": "^5.1.6"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@edge/eslint-config/base"
+    ]
+  },
+  "prettier": "@edge/prettier-config/base"
+}
