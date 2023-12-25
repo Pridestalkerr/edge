@@ -1,4 +1,4 @@
 {
   "extends": "@edge/tsconfig/base.json",
-  "include": ["src"]
+  "include": ["src", "src/**/*.mjs"]
 }
