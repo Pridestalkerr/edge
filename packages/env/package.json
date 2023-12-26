@@ -2,16 +2,15 @@
   "name": "@edge/env",
   "version": "0.0.0",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "files": [
-    "src"
-  ],
+  "main": "./src/index.mjs",
+  "types": "./src/index.mjs",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf node_modules",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "format": "prettier \"**/*.{mjs,ts,md,json}\"",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint . --ext .ts,.tsx,.mjs",
+    "lint:fix": "pnpm lint --fix",
+    "format": "prettier --write '*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+    "format:check": "prettier --check '*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.6.1",
