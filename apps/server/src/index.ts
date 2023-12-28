@@ -1,10 +1,10 @@
 import express from "express";
 import { createServer } from "http";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { env } from "@edge/env";
 
 const main = async () => {
-  console.log(env, "XD");
   const app = express();
   app.use(
     cors({
@@ -13,6 +13,8 @@ const main = async () => {
       credentials: true,
     }),
   );
+
+  app.use(cookieParser());
 
   const server = createServer(app);
   server.listen(env.API_PORT, () => {

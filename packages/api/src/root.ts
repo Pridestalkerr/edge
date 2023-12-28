@@ -2,8 +2,11 @@ import { router } from "./trpc";
 import type { ProcedureRouterRecord, inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import type { AnyProcedureBuilderDef } from "@trpc/server/dist/core/internals/procedureBuilder";
 import { z } from "zod";
+import { testRouter } from "./router/test";
 
-const appRouter = router({});
+export const appRouter = router({
+  test: testRouter,
+});
 
 export type AppRouter = typeof appRouter;
 export type RouterInputs = inferRouterInputs<AppRouter>;

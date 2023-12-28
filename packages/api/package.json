@@ -16,7 +16,8 @@
     "@edge/env": "^0.0.0",
     "@trpc/client": "^10.45.0",
     "@trpc/server": "^10.45.0",
-    "superjson": "^2.2.1",
+    "superjson": "2.2.1",
+    "trpc-openapi": "^1.2.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {

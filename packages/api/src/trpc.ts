@@ -4,6 +4,7 @@ import { ZodError } from "zod";
 import type { CreateExpressContextOptions } from "@trpc/server/adapters/express";
 import { env } from "@edge/env";
 import type { response, request } from "express";
+import type { OpenApiMeta } from "trpc-openapi";
 
 interface Session {
   token: string;
@@ -34,7 +35,7 @@ export const createTRPCContext = async ({
 
 export const trpc = initTRPC
   .context<Context>()
-  .meta()
+  .meta<OpenApiMeta>()
   .create({
     transformer: superjson,
     errorFormatter({ shape, error }) {
