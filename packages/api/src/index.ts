@@ -5,6 +5,9 @@ import type { AppRouter } from "./root";
 export type { AppRouter };
 
 import { appRouter } from "./root";
+export { appRouter };
+import { createTRPCContext } from "./trpc";
+export { createTRPCContext };
 
 export const openApiDocument = (baseUrl: string) => {
   // if you get a type error below, its likely due to the version of superjson, try 1.9.1
