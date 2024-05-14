@@ -18,7 +18,7 @@
     "@edge/eslint-config": "^0.0.0",
     "@edge/prettier-config": "^0.0.0",
     "@edge/tsconfig": "^0.0.0",
-    "next": "14.0.4",
+    "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18"
   },
