@@ -1,0 +1,30 @@
+{
+  "name": "@edge/auth",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@edge/db": "^0.0.0",
+    "@lucia-auth/adapter-drizzle": "^1.0.7",
+    "lucia": "^3.2.0"
+  },
+  "devDependencies": {
+    "@edge/eslint-config": "^0.0.0",
+    "@edge/prettier-config": "^0.0.0",
+    "@edge/tsconfig": "^0.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@edge/eslint-config/base"
+    ]
+  },
+  "prettier": "@edge/prettier-config/base"
+}
