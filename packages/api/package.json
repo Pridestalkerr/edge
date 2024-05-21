@@ -13,9 +13,13 @@
     "format:check": "prettier --check '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern"
   },
   "dependencies": {
+    "@edge/auth": "^0.0.0",
+    "@edge/db": "^0.0.0",
     "@edge/env": "^0.0.0",
-    "@trpc/client": "^10.45.0",
-    "@trpc/server": "^10.45.0",
+    "@node-rs/argon2": "^1.8.3",
+    "@trpc/client": "11.0.0-rc.374",
+    "@trpc/server": "11.0.0-rc.374",
+    "drizzle-orm": "^0.30.10",
     "superjson": "2.2.1",
     "trpc-openapi": "^1.2.0",
     "zod": "^3.21.4"
