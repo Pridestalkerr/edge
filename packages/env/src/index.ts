@@ -18,7 +18,7 @@ export const env = createEnv({
   },
   runtimeEnv: {
     ...process.env,
-    NEXT_PUBLIC_API_HOST: process.env.API_HOST,
-    NEXT_PUBLIC_API_ENDPOINT: process.env.API_ENDPOINT,
+    NEXT_PUBLIC_API_HOST: process.env.NEXT_PUBLIC_API_HOST,
+    NEXT_PUBLIC_API_ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT,
   },
 });
