@@ -6,32 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
-    "clean": "rm -rf .turbo && rm -rf node_modules",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "format": "prettier --write '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern",
-    "format:check": "prettier --check '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern"
-  },
-  "dependencies": {
-    "@edge/env": "^0.0.0",
-    "@edge/eslint-config": "^0.0.0",
-    "@edge/prettier-config": "^0.0.0",
-    "@edge/tsconfig": "^0.0.0",
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "lint": "next lint"
   },
   "eslintConfig": {
     "root": true,
@@ -39,5 +14,38 @@
       "@edge/eslint-config/next"
     ]
   },
-  "prettier": "@edge/prettier-config/tailwind"
+  "prettier": "@edge/prettier-config/tailwind",
+  "dependencies": {
+    "@edge/api": "^0.0.0",
+    "@edge/env": "^0.0.0",
+    "@nextui-org/react": "^2.3.6",
+    "@nextui-org/theme": "^2.2.3",
+    "@tanstack/react-query": "^5.37.1",
+    "@trpc/client": "11.0.0-rc.374",
+    "@trpc/react-query": "11.0.0-rc.374",
+    "@trpc/server": "11.0.0-rc.374",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.1.8",
+    "next": "14.2.3",
+    "next-themes": "^0.3.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "superjson": "2.2.1",
+    "tailwind-merge": "^2.3.0"
+  },
+  "devDependencies": {
+    "@edge/eslint-config": "^0.0.0",
+    "@edge/prettier-config": "^0.0.0",
+    "@edge/tsconfig": "^0.0.0",
+    "@iconify/json": "^2.2.208",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@types/node": "^20.10.3",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.1.6",
+    "unplugin-icons": "^0.19.0"
+  }
 }
