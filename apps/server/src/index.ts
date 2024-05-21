@@ -1,13 +1,13 @@
-import express from "express";
 import { createServer } from "http";
-import cors from "cors";
-import cookieParser from "cookie-parser";
+import { appRouter, createTRPCContext, openApiDocument } from "@edge/api";
 import { env } from "@edge/env";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { appRouter, createTRPCContext, openApiDocument } from "@edge/api";
-import { createOpenApiExpressMiddleware } from "trpc-openapi";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import express from "express";
 import asyncHandler from "express-async-handler";
 import swagger from "swagger-ui-express";
+import { createOpenApiExpressMiddleware } from "trpc-openapi";
 
 // eslint-disable-next-line @typescript-eslint/require-await
 const main = async () => {
@@ -32,6 +32,8 @@ const main = async () => {
       createContext: createTRPCContext,
     }),
   );
+
+  // TODO: you MUST implement CSRF protection for all openapi procedures!
   app.use(
     restEP,
     asyncHandler(
@@ -47,10 +49,10 @@ const main = async () => {
 
   const server = createServer(app);
   server.listen(env.API_PORT, () => {
-    console.log(`Listening on port ${env.API_PORT}`);
-    console.log(`TRPC at ${trpcEP}`);
-    console.log(`REST at ${restEP}`);
-    console.log(`Swagger at ${swaggerEP}`);
+    console.log(`Express: \n\t http://localhost:${env.API_PORT}`);
+    console.log(`tRPC: \n\t http://localhost:${env.API_PORT}${trpcEP}`);
+    console.log(`REST interface: \n\t http://localhost:${env.API_PORT}${restEP}`);
+    console.log(`Swagger: \n\t http://localhost:${env.API_PORT}${swaggerEP}`);
   });
 };
 
