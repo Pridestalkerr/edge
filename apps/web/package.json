@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+    "format:check": "prettier --check '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern"
   },
   "eslintConfig": {
     "root": true,
