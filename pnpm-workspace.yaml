@@ -2,9 +2,11 @@ packages:
   - apps/web
   - apps/server
   - packages/config/eslint
+  - packages/config/eslint__experimental-ts
   - packages/config/tsconfig
   - packages/config/prettier
   - packages/env
   - packages/api
   - packages/auth
   - packages/db
+  - packages/shared

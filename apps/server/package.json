@@ -1,47 +1,35 @@
 {
-  "name": "@edge/server",
-  "version": "0.0.0",
+  "name": "@edge-placeholder/server",
   "type": "module",
-  "main": "./src/index.mjs",
-  "types": "./src/index.mjs",
   "scripts": {
-    "build": "tsc",
-    "dev": "nodemon",
+    "dev": "bun run --hot src/index.ts",
+    "build": "esbuild --bundle --platform=node --outdir=dist --format=esm ./src/index.ts",
+    "clean": "rm -rf .turbo node_modules",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf .turbo && rm -rf node_modules",
-    "lint": "eslint . --ext .ts,.tsx,.mjs",
-    "lint:fix": "pnpm lint --fix",
-    "format": "prettier --write '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern",
-    "format:check": "prettier --check '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-unknown --no-error-on-unmatched-pattern"
+    "format": "prettier --check '**/*.{ts}' --ignore-unknown --no-error-on-unmatched-pattern --cache --cache-location=node_modules/.cache/.prettiercache",
+    "format:fix": "prettier --write '**/*.{ts}' --ignore-unknown --no-error-on-unmatched-pattern --cache --cache-location=node_modules/.cache/.prettiercache",
+    "lint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:fix": "pnpm lint --fix"
   },
+  "prettier": "@edge-placeholder/prettier-config/base",
   "devDependencies": {
-    "@edge/eslint-config": "^0.0.0",
-    "@edge/prettier-config": "^0.0.0",
-    "@edge/tsconfig": "^0.0.0",
-    "@types/cookie-parser": "^1.4.6",
+    "@edge-placeholder/eslint-config": "*",
+    "@edge-placeholder/prettier-config": "*",
+    "@edge-placeholder/tsconfig": "*",
+    "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/swagger-ui-express": "^4.1.6",
-    "esbuild-register": "^3.5.0",
-    "nodemon": "^3.0.2",
-    "typescript": "^5.1.6"
+    "@types/express": "^5.0.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.2",
+    "bun": "^1.1.38"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@edge/eslint-config/base"
-    ]
-  },
-  "prettier": "@edge/prettier-config/base",
   "dependencies": {
-    "@edge/api": "^0.0.0",
-    "@edge/env": "^0.0.0",
-    "@trpc/server": "11.0.0-rc.374",
-    "cookie-parser": "^1.4.6",
+    "@edge-placeholder/api": "*",
+    "@edge-placeholder/env": "*",
+    "@trpc/server": "11.0.0-rc.660",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "express-async-handler": "^1.2.0",
-    "swagger-ui-express": "^5.0.0",
-    "trpc-openapi": "^1.2.0"
+    "express": "^4.21.2",
+    "ts-node": "^10.9.2"
   }
 }

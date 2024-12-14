@@ -4,20 +4,11 @@ import { router } from "../trpc";
 
 export const testRouter = router({
   hello: publicProcedure
-    .meta({
-      openapi: {
-        method: "GET",
-        path: "/test/hello",
-        summary: "Say hello",
-        description: "Say hello to the world",
-        tags: ["test", "hello"],
-      },
-    })
     .input(z.object({ name: z.string() }))
     .output(z.object({ message: z.string() }))
     .query(({ input, ctx }) => {
-      ctx.req;
-      ctx.res;
+      console.log(ctx.req);
+      console.log(ctx.res);
       return { message: `Hello ${input.name}` };
     }),
 });

@@ -45,6 +45,6 @@ yarn-error.log*
 .turbo
 pnpm-lock.yaml
 
-# data
+# data (postgres, elasticsearch)
 pgdata
 esdata

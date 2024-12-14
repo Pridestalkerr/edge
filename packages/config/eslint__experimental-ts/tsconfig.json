@@ -1,0 +1,4 @@
+{
+  "extends": "@edge-placeholder/tsconfig/base.json",
+  "include": ["src", "./eslint.config.ts"]
+}

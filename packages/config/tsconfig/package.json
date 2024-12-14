@@ -1,10 +1,16 @@
 {
-  "name": "@edge/tsconfig",
-  "version": "0.0.0",
+  "name": "@edge-placeholder/tsconfig",
   "files": [
     "./base.json"
   ],
-  "devDependencies": {
-    "typescript": "^5.1.6"
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check '**/*.{json}' --ignore-unknown --no-error-on-unmatched-pattern",
+    "format:fix": "prettier --write '**/*.{json}' --ignore-unknown --no-error-on-unmatched-pattern"
+  },
+  "prettier": "@edge-placeholder/prettier-config/base",
+  "dependencies": {
+    "@edge-placeholder/prettier-config": "undefined",
+    "typescript": "^5.7.2"
   }
 }

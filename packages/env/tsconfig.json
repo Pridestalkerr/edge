@@ -1,4 +1,4 @@
 {
-  "extends": "@edge/tsconfig/base.json",
+  "extends": "@edge-placeholder/tsconfig/base.json",
   "include": ["src"]
 }

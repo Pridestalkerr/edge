@@ -1,13 +1,10 @@
 import { createServer } from "http";
-import { appRouter, createTRPCContext, openApiDocument } from "@edge/api";
-import { env } from "@edge/env";
+import { appRouter, createTRPCContext } from "@edge-placeholder/api";
+import { server as env } from "@edge-placeholder/env";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
-import asyncHandler from "express-async-handler";
-import swagger from "swagger-ui-express";
-import { createOpenApiExpressMiddleware } from "trpc-openapi";
 
 // eslint-disable-next-line @typescript-eslint/require-await
 const main = async () => {
@@ -20,11 +17,12 @@ const main = async () => {
     }),
   );
 
-  const trpcEP = env.API_ENDPOINT + "trpc";
-  const restEP = env.API_ENDPOINT + "rest";
-  const swaggerEP = env.API_ENDPOINT + "swagger";
-
   app.use(cookieParser());
+
+  const trpcEP = env.API_ENDPOINT + "/trpc";
+  // const restEP = env.API_ENDPOINT + "rest";
+  // const swaggerEP = env.API_ENDPOINT + "swagger";
+
   app.use(
     trpcEP,
     createExpressMiddleware({
@@ -33,26 +31,13 @@ const main = async () => {
     }),
   );
 
-  // TODO: you MUST implement CSRF protection for all openapi procedures!
-  app.use(
-    restEP,
-    asyncHandler(
-      createOpenApiExpressMiddleware({
-        router: appRouter,
-        createContext: createTRPCContext,
-      }),
-    ),
-  );
+  // const server = createServer(app);
 
-  app.use(swaggerEP, swagger.serve);
-  app.get(swaggerEP, swagger.setup(openApiDocument(restEP)));
-
-  const server = createServer(app);
-  server.listen(env.API_PORT, () => {
+  app.listen(env.API_PORT, () => {
     console.log(`Express: \n\t http://localhost:${env.API_PORT}`);
     console.log(`tRPC: \n\t http://localhost:${env.API_PORT}${trpcEP}`);
-    console.log(`REST interface: \n\t http://localhost:${env.API_PORT}${restEP}`);
-    console.log(`Swagger: \n\t http://localhost:${env.API_PORT}${swaggerEP}`);
+    // console.log(`REST interface: \n\t http://localhost:${env.API_PORT}${restEP}`);
+    // console.log(`Swagger: \n\t http://localhost:${env.API_PORT}${swaggerEP}`);
   });
 };
 

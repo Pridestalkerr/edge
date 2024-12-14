@@ -1,7 +1,8 @@
-import { RootProviders } from "@/lib/RootProviders";
+// import { RootProviders } from "@/lib/RootProviders";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { RootProvider } from "@/lib/RootProvider";
 import { cn } from "@/lib/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "h-screen w-screen")}>
-        <RootProviders>
+        <RootProvider>
           <main className="min-h-screen bg-background text-foreground">{children}</main>
-        </RootProviders>
+        </RootProvider>
       </body>
     </html>
   );

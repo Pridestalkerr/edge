@@ -1,9 +1,23 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalEnv": ["API_HOST", "API_ENDPOINT"],
+
+  "globalEnv": [
+    "API_PORT",
+    "API_HOST",
+    "API_ENDPOINT",
+    "CLIENT_HOST",
+    "DATABASE_URI",
+    "POSTGRESQL_USERNAME",
+    "POSTGRESQL_PASSWORD",
+    "POSTGRESQL_DATABASE",
+    "NODE_ENV"
+  ],
   "tasks": {
-    "topo": {
-      "dependsOn": ["^topo"]
+    "transit": {
+      "dependsOn": ["^transit"]
+    },
+    "build": {
+      "outputs": [".next/**", "dist/**"]
     },
     "dev": {
       "persistent": true,
@@ -11,6 +25,23 @@
     },
     "clean": {
       "cache": false
+    },
+    "format": {
+      "cache": true
+    },
+    "format:fix": {
+      "cache": true
+    },
+    "lint": {
+      "dependsOn": ["transit"],
+      "cache": true
+    },
+    "lint:fix": {
+      "cache": true
+    },
+    "typecheck": {
+      "dependsOn": ["transit"],
+      "cache": true
     }
   }
 }
