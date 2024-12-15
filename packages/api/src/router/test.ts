@@ -16,8 +16,7 @@ export const testRouter = router({
     .input(z.object({ name: z.string() }))
     .output(z.object({ message: z.string() }))
     .query(({ input, ctx }) => {
-      console.log(ctx.req);
-      console.log(ctx.res);
+      console.log(ctx.req.query);
       return { message: `Hello ${input.name}` };
     }),
 });
