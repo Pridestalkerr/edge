@@ -1,4 +1,5 @@
 import { server } from "@edge-placeholder/env";
+import type { OpenApiMeta } from "@edge-placeholder/trpc-openapi";
 import { initTRPC } from "@trpc/server";
 import type { CreateExpressContextOptions } from "@trpc/server/adapters/express";
 import type { Request, Response } from "express";
@@ -27,23 +28,26 @@ export const createTRPCContext = async ({
   };
 };
 
-export const trpc = initTRPC.context<Context>().create({
-  transformer: superjson,
-  errorFormatter({ shape, error }) {
-    if (error.code === "INTERNAL_SERVER_ERROR" && server.NODE_ENV === "production") {
+export const trpc = initTRPC
+  .context<Context>()
+  .meta<OpenApiMeta>()
+  .create({
+    transformer: superjson,
+    errorFormatter({ shape, error }) {
+      if (error.code === "INTERNAL_SERVER_ERROR" && server.NODE_ENV === "production") {
+        return {
+          ...shape,
+          message: "An unknown error occurred",
+        };
+      }
       return {
         ...shape,
-        message: "An unknown error occurred",
+        data: {
+          ...shape.data,
+          zodError: error.cause instanceof ZodError ? error.cause.flatten() : undefined,
+        },
       };
-    }
-    return {
-      ...shape,
-      data: {
-        ...shape.data,
-        zodError: error.cause instanceof ZodError ? error.cause.flatten() : undefined,
-      },
-    };
-  },
-});
+    },
+  });
 
 export const router = trpc.router;
