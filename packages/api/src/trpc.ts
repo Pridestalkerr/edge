@@ -6,6 +6,8 @@ import type { Request, Response } from "express";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
+export type { OpenApiMeta };
+
 export interface Context {
   req: Request;
   res: Response;
