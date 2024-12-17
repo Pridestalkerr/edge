@@ -11,3 +11,4 @@ packages:
   - packages/db
   - packages/shared
   - packages/trpc-openapi
+  - packages/trpc-openapi-v2
